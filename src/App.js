@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import LoginForm from './components/LoginForm';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import QuizFormSetup from './components/QuizFormSetup';
+import Question from './components/Question';
+import CumulativeResult from './components/CumulativeResult';
+import { AuthProvider } from './components/AuthContext';
+import Result from './components/Result';
+import QuestionsUnavailable from './components/QuestionsUnavailable';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <>
+  <AuthProvider>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<LoginForm />}></Route>
+        <Route index element={<LoginForm />}></Route>
+        <Route path="/getQuestionFiles" element={<QuizFormSetup />}></Route>
+        <Route path="/questionsUnavailable" element={<QuestionsUnavailable />}></Route>
+        <Route path="/questions" element={<Question />}></Route>
+        <Route path="/results" element={<Result />}></Route>
+        <Route path="/cumulativeResults" element={<CumulativeResult />}></Route>
+      </Routes>
+      
+    </BrowserRouter>
+  </AuthProvider>
+  </>);
 }
 
 export default App;
