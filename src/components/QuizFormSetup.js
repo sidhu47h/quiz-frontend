@@ -75,65 +75,68 @@ const QuizFormSetup = () => {
     };
 
   return (
-    <div className='flex max-w-2xl mx-auto shadow border-b'>
-        <div className='px-8 py-8'>
+    <div className='flex flex-col max-w-2xl mx-auto shadow border-b'>
+        <div className='px-4 sm:px-8 py-8'>
             <div className='font-bold text-2xl tracking-wider'>
                 <h1>Enter quiz details</h1>
             </div>
-            {/* <div className='items-center justify-center h-14 w-full my-4'>
+            <div className='flex flex-col items-start justify-center h-14 w-full my-4'>
                 <label className='block text-gray-600 text-sm font-normal'>
                     Select QuizFile
                 </label>
-                <input 
+                <select 
                     name="quizFileName"
-                    value={quiz.quizFileName} 
-                    type='text' 
-                    onChange={(e) => handleChange(e) }
-                    className='h-10 w-96 border mt-2 px-2 py-2'></input>
-            </div> */}
-            <div className='items-center justify-center h-14 w-full my-4'>
-            <label className='block text-gray-600 text-sm font-normal'>
-                Select QuizFile
-            </label>
-            <select 
-                name="quizFileName"
-                value={quiz.quizFileName}
-                onChange={handleChange}
-                className='h-10 w-96 border mt-2 px-2 py-2'>
-                <option value="">Please select a file</option>
-                {quizFileNames.map((file, index) => (
-                    <option key={index} value={file}>
-                        {file}
-                    </option>
-                ))}
-            </select>
-        </div>
-            <div className='items-center justify-center h-14 w-full my-4'>
+                    value={quiz.quizFileName}
+                    onChange={handleChange}
+                    className='h-10 w-full border mt-2 px-2 py-2'>
+                    <option value="">Please select a file</option>
+                    {quizFileNames.map((file, index) => (
+                        <option key={index} value={file}>
+                            {file}
+                        </option>
+                    ))}
+                </select>
+            </div>
+            <div className='flex flex-col items-start justify-center h-18 w-full my-4'>
                 <label className='block text-gray-600 text-sm font-normal'>
                     Upload QuizFile
                 </label>
-                <input 
-                    name="quizFile"
-                    type='file' 
-                    onChange={(e) => handleFileChange(e) }
-                    className='border mt-2 mr-2 mb-2 px-2 py-2'></input>
-                    <button  onClick={handleUploadQuizFile} className='rounded text-white font-semibold bg-green-400 hover:bg-green-700 mt-2 mb-2 py-2 px-2'>Upload Quiz File</button>
+                <input name="quizFile"
+                        type='file' 
+                        onChange={(e) => handleFileChange(e) }
+                        className="h-12 w-full border mt-2 px-2 py-2"></input>
             </div>
-            <div className='items-center justify-center h-14 w-full my-8'>
+            <div className="flex flex-col sm:flex-row items-start justify-start w-full my-4">
+            {/* <input name="quizFile"
+                        type='file' 
+                        onChange={(e) => handleFileChange(e) }
+                        className="h-10 w-full border mt-2 px-2 py-2"></input> */}
+                <button onClick={handleUploadQuizFile} className="rounded text-white font-semibold bg-green-400 hover:bg-green-700 mt-2 mb-2 py-2 px-4">Upload Quiz File</button>
+            </div>
+
+            {/* <div className='flex flex-col items-start justify-center h-14 w-full my-4'>
+                <input 
+                        name="quizFile"
+                        type='file' 
+                        onChange={(e) => handleFileChange(e) }
+                        className='h-10 w-96 border mt-2 mr-2 mb-2 px-2 py-2'></input>
+                        <button  onClick={handleUploadQuizFile} className='rounded text-white font-semibold bg-green-400 hover:bg-green-700 mt-2 mb-2 py-2 px-2'>Upload Quiz File</button>
+            </div>                     */}
+            <div className='flex flex-col items-start justify-center h-14 w-full my-4'>
                 <label className='block text-gray-600 text-sm font-normal'>
                     Enter the number of questions
                 </label>
-                <input name="noOfQuestions" value={quiz.noOfQuestions} onChange={(e) => handleChange(e) } type='number' className='h-10 w-96 border mt-2 px-2 py-2'></input>
+                <input name="noOfQuestions" value={quiz.noOfQuestions} onChange={(e) => handleChange(e) } type='number' className='h-10 w-full border mt-2 px-2 py-2'></input>
             </div>
 
-            <div className='items-center justify-center h-14 w-full my-4'>
+            <div className='flex flex-col items-start justify-center h-14 w-full my-4'>
                 <label className='block text-gray-600 text-sm font-normal'>
                     Enter the time limit of the quiz
                 </label>
-                <input name="timeLimit" value={quiz.timeLimit} onChange={(e) => handleChange(e) } type='number' className='h-10 w-96 border mt-2 px-2 py-2'></input>
+                <input name="timeLimit" value={quiz.timeLimit} onChange={(e) => handleChange(e) } type='number' className='h-10 w-full border mt-2 px-2 py-2'></input>
             </div>
 
-            <div className='items-center justify-center h-14 w-full my-4 py-4'>
+            <div className='flex flex-col items-start justify-center h-14 w-full my-4 py-4'>
                 <button  onClick={setQuizDetails} className='rounded text-white font-semibold bg-green-400 hover:bg-green-700 py-2 px-2'>Start Quiz</button>
             </div>
         </div>

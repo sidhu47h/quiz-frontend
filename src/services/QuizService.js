@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const QUIZ_SERVICE_API_URL = "https://3.101.19.177:8443";
+// const QUIZ_SERVICE_API_URL = "https://localhost:8080";
+const QUIZ_SERVICE_API_URL = "https://13.52.252.112:443";
+
+// const QUIZ_SERVICE_API_URL = "http://54.152.119.212:8080";
 
 class QuizService {
     authenticate(user) {

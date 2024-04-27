@@ -85,8 +85,8 @@ function App() {
   };
 
   return (
-    <div className="flex max-w-2xl mx-auto shadow border-b">
-      <div className='px-8 py-8'>
+    <div className="flex flex-col max-w-2xl mx-auto shadow border-b">
+      <div className='px-4 sm:px-8 py-8'>
         {questions.length > 0 && (
           <div>
             <h1>Timer: {timer} seconds</h1>
